@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Roomy.Validators;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -38,6 +39,7 @@ namespace Roomy.Models
 
         [Display(Name = "Date de naissance")]
         [DataType(DataType.Date)]
+        [Age(18, ErrorMessage = "Il faut avoir plus de {1} ans.")]
         public DateTime? Birthdate { get; set; }
     }
 }
