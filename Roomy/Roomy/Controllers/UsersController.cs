@@ -15,6 +15,7 @@ namespace Roomy.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Create(User user)
         {
             if (ModelState.IsValid)
