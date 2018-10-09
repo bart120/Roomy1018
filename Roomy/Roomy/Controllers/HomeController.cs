@@ -11,6 +11,9 @@ namespace Roomy.Controllers
         
         public IActionResult Index()
         {
+            //ViewBag.Title = "Accueil";
+            ViewData["Title"] = "Accueil";
+
             return View();
         }
 
