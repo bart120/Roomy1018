@@ -7,36 +7,44 @@
 <h2>Inscription</h2>
 
 <form role="form" asp-action="create" asp-controller="users" method="post">
+    @*<div asp-validation-summary="All"></div>*@
+
     <div class="form-group">
         @*<label class="control-label" for="exampleInputEmail">Email address</label>
             <input type="email" class="form-control" id="exampleInputEmail" placeholder="Enter email" name="email">*@
         <label asp-for="Lastname" class="control-label"></label>
         <input asp-for="Lastname" class="form-control" />
+        <span asp-validation-for="Lastname" class="text-danger"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="Firstname" class="control-label"></label>
         <input asp-for="Firstname" class="form-control" />
+        <span asp-validation-for="Firstname" class="text-danger"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="Mail" class="control-label"></label>
         <input asp-for="Mail" class="form-control" />
+        <span asp-validation-for="Mail" class="text-danger"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="Password" class="control-label"></label>
         <input asp-for="Password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="ConfirmedPassword" class="control-label"></label>
         <input asp-for="ConfirmedPassword" class="form-control" />
+        <span asp-validation-for="ConfirmedPassword" class="text-danger"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="Birthdate" class="control-label"></label>
         <input asp-for="Birthdate" class="form-control" />
+        <span asp-validation-for="Birthdate" class="text-danger"></span>
     </div>
 
     <button type="submit" class="btn btn-default">Enregistrer</button>
