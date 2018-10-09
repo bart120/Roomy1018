@@ -31,7 +31,7 @@
                     @*@Html.ActionLink("Accueil", "index", "home", null, new {  @class="navbar-brand" })*@
                     @*<a class="navbar-brand" href="@Url.Action("index", "home")">Accueil</a>*@
                     <a class="navbar-brand" asp-action="index" asp-controller="home">Accueil</a>
-
+                    
 
                 </div>
 
@@ -64,7 +64,7 @@
                         <button type="submit" class="btn btn-default">Submit</button>
                     </form>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Link</a></li>
+                        <li><a asp-action="create" asp-controller="users">S'inscrire</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                             <ul class="dropdown-menu">

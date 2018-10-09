@@ -1,0 +1,44 @@
+﻿@model User
+
+@{
+    ViewData["Title"] = "S'inscrire";
+}
+
+<h2>Inscription</h2>
+
+<form role="form" asp-action="create" asp-controller="users" method="post">
+    <div class="form-group">
+        @*<label class="control-label" for="exampleInputEmail">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail" placeholder="Enter email" name="email">*@
+        <label asp-for="Lastname" class="control-label"></label>
+        <input asp-for="Lastname" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Firstname" class="control-label"></label>
+        <input asp-for="Firstname" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Mail" class="control-label"></label>
+        <input asp-for="Mail" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Password" class="control-label"></label>
+        <input asp-for="Password" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ConfirmedPassword" class="control-label"></label>
+        <input asp-for="ConfirmedPassword" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Birthdate" class="control-label"></label>
+        <input asp-for="Birthdate" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-default">Enregistrer</button>
+</form>
+
