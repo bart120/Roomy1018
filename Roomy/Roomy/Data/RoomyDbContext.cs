@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Roomy.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,7 @@ namespace Roomy.Data
         public RoomyDbContext(DbContextOptions<RoomyDbContext> options) :base(options)
         {
         }
+
+        public DbSet<User> Users { get; set; }
     }
 }
