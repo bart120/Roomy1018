@@ -5,10 +5,7 @@
     ViewData["Title"] = "S'inscrire";
 }
 
-@if (!string.IsNullOrWhiteSpace(ViewBag.Message))
-{
-    <div class="alert alert-warning">@ViewBag.Message</div>
-}
+
 
 
 <form role="form" asp-action="create" asp-controller="users" method="post">

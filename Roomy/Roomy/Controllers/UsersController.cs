@@ -19,8 +19,8 @@ namespace Roomy.Controllers
 
         public IActionResult Create()
         {
-            var user = new User { Lastname = "toto" };
-            return View(user);
+            //var user = new User { Lastname = "toto" }; 
+            return View();
         }
 
         [HttpPost]
@@ -31,9 +31,11 @@ namespace Roomy.Controllers
             {
                 await db.Users.AddAsync(user);
                 await db.SaveChangesAsync();
-                ViewBag.Message = "Utilisateur enregistré.";
 
-                //return RedirectToAction("index", "home");
+                TempData["Message"] = "Utilisateur enregistré.";
+                //ViewBag.Message = "Utilisateur enregistré.";
+
+                return RedirectToAction("index", "home");
             }
             return View(user);
         }

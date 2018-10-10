@@ -1,4 +1,5 @@
-﻿@{
+﻿
+@{
     Layout = null;
 }
 
@@ -7,30 +8,14 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title | Roomy</title>
+    <title>@ViewBag.Title | Backoffice</title>
     <link href="~/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" />
     <link href="~/StyleSheet.css" rel="stylesheet" />
 </head>
 <body>
+
     <div class="container">
-        <header>
-            <h1>Roomy</h1>
-        </header>
 
-        @* @Html.Partial("_Menu") => dep.*@
-        @* @{ await Html.RenderPartialAsync("_Menu");} *@
-        <partial name="_Menu" />
-
-        @if (!string.IsNullOrWhiteSpace(TempData["Message"]?.ToString()))
-        {
-            <div class="alert alert-warning">@TempData["Message"]</div>
-        }
-
-        @RenderBody()
-
-        <footer class="panel-footer">
-            &copy; Roomy
-        </footer>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -39,6 +24,6 @@
     <script src="~/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
 
     @await RenderSectionAsync("SectionScripts", false)
-    
+
 </body>
 </html>
