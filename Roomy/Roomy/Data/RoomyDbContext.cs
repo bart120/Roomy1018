@@ -1,0 +1,15 @@
+﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Roomy.Data
+{
+    public class RoomyDbContext : DbContext
+    {
+        public RoomyDbContext(DbContextOptions<RoomyDbContext> options) :base(options)
+        {
+        }
+    }
+}

@@ -13,6 +13,7 @@ namespace Roomy.Controllers
         {
             //ViewBag.Title = "Accueil";
             ViewData["Title"] = "Accueil";
+            //ViewBag["Title"] = "Accueil";
 
             return View();
         }

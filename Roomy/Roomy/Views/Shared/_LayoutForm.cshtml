@@ -1,0 +1,17 @@
+﻿
+@{
+    Layout = "_Layout";
+}
+
+<div class="panel panel-info">
+    <div class="panel-heading">@RenderSection("SectionTitlePanel", true)</div>
+    <div class="panel-body">
+        @RenderBody()
+    </div>
+</div>
+
+@section SectionScripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+    @RenderSection("SectionScripts", false)
+}

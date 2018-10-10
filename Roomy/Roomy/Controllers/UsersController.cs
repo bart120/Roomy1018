@@ -11,7 +11,8 @@ namespace Roomy.Controllers
     {
         public IActionResult Create()
         {
-            return View();
+            var user = new User { Lastname = "toto" };
+            return View(user);
         }
 
         [HttpPost]

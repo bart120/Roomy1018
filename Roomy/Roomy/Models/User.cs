@@ -4,17 +4,21 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using Roomy.Resources;
 
 namespace Roomy.Models
 {
     public class User
     {
-        [Display(Name = "Nom de famille", ShortName = "Nom", Prompt = "Nom de l'utilisateur")]
-        [Required(ErrorMessage = "Le champ {0} est obligatoire")]
+        /*[Display(Name = "Nom de famille", ShortName = "Nom", Prompt = "Nom de l'utilisateur")]
+        [Required(ErrorMessage = "Le champ {0} est obligatoire")]*/
+        [Display(Name = "name", ResourceType = typeof(Shared))]
+        [Required(ErrorMessageResourceType = typeof(Shared), ErrorMessageResourceName = "required_field")]
         [StringLength(128, ErrorMessage = "Le champ {0} doit contenir {1} caractères max.")]
         public string Lastname { get; set; }
 
-        [Display(Name = "Prénom")]
+        //[Display(Name = "Prénom")]
+        [Display(Name = "firstname", ResourceType = typeof(Shared))]
         [StringLength(128, ErrorMessage = "Le champ {0} doit contenir {1} caractères max.")]
         public string Firstname { get; set; }
 
