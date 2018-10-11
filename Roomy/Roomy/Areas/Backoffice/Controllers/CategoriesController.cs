@@ -6,11 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Roomy.Data;
+using Roomy.Filters;
 using Roomy.Models;
 
 namespace Roomy.Areas.Backoffice.Controllers
 {
     [Area("Backoffice")]
+    [Authentication]
     public class CategoriesController : Controller
     {
         private readonly RoomyDbContext _context;

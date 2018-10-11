@@ -73,5 +73,12 @@ namespace Roomy.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Remove("USER_BO");
+            return RedirectToAction("index", "home");
+        }
+
     }
 }
