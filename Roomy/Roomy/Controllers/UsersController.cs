@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using Roomy.Data;
 using Roomy.Models;
 
@@ -29,15 +32,46 @@ namespace Roomy.Controllers
         {
             if (ModelState.IsValid)
             {
-                await db.Users.AddAsync(user);
-                await db.SaveChangesAsync();
+                try
+                {
+                    await db.Users.AddAsync(user);
+                    await db.SaveChangesAsync();
 
-                TempData["Message"] = "Utilisateur enregistré.";
-                //ViewBag.Message = "Utilisateur enregistré.";
+                    TempData["Message"] = "Utilisateur enregistré.";
+                    //ViewBag.Message = "Utilisateur enregistré.";
 
-                return RedirectToAction("index", "home");
+                    return RedirectToAction("index", "home");
+                }
+                catch (Exception)
+                {
+                    ModelState.AddModelError("Mail", "Email existant.");
+                }
             }
             return View(user);
         }
+
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(LoginViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await db.Users.FirstOrDefaultAsync(x => x.Mail == model.Mail && x.Password == model.Password);
+                if (user != null)
+                {
+                    HttpContext.Session.SetString("USER_BO", JsonConvert.SerializeObject(user));
+                    
+                    return RedirectToAction("index", "dashboard", new { area = "backoffice" });
+                }else
+                    ModelState.AddModelError("Mail", "Erreur login / mot de passe");
+            }
+            return View();
+        }
+
     }
 }

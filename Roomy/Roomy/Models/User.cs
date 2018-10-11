@@ -33,6 +33,7 @@ namespace Roomy.Models
         [Required(ErrorMessage = "Le champ {0} est obligatoire")]
         [StringLength(150)]
         [EmailAddress(ErrorMessage = "Le champ {0} n'est pas au bon format.")]
+        [UserMail(ErrorMessage = "L'email existe déjà.")]
         public string Mail { get; set; }
 
         [Display(Name = "Mot de passe")]

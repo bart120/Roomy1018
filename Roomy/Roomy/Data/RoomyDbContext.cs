@@ -13,6 +13,15 @@ namespace Roomy.Data
         {
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>().HasIndex(x => x.Mail).IsUnique();
+        }
+
         public DbSet<User> Users { get; set; }
+
+        public DbSet<Category> Categories { get; set; }
+
+        public DbSet<Room> Rooms { get; set; }
     }
 }

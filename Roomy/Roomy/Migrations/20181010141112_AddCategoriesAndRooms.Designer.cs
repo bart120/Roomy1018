@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Roomy.Data;
 
 namespace Roomy.Migrations
 {
     [DbContext(typeof(RoomyDbContext))]
-    partial class RoomyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181010141112_AddCategoriesAndRooms")]
+    partial class AddCategoriesAndRooms
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -26,8 +28,7 @@ namespace Roomy.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50);
+                        .IsRequired();
 
                     b.HasKey("ID");
 
@@ -84,9 +85,6 @@ namespace Roomy.Migrations
                         .HasMaxLength(150);
 
                     b.HasKey("ID");
-
-                    b.HasIndex("Mail")
-                        .IsUnique();
 
                     b.ToTable("Users");
                 });

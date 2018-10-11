@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Roomy.Data;
 
 namespace Roomy.Migrations
 {
     [DbContext(typeof(RoomyDbContext))]
-    partial class RoomyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181011075804_AddUniqueMailUser")]
+    partial class AddUniqueMailUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

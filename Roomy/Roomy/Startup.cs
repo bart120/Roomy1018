@@ -32,6 +32,9 @@ namespace Roomy
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSession(options =>
+                options.IdleTimeout = TimeSpan.FromMinutes(5));
+
             services.AddMvc();
 
             services.AddDbContext<RoomyDbContext>(options =>
@@ -63,6 +66,8 @@ namespace Roomy
             });*/
 
             app.UseStaticFiles();
+
+            app.UseSession();
 
             //app.UseMvcWithDefaultRoute();
             app.UseMvc(ConfigureRoute);
